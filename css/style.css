@@ -5,6 +5,13 @@ body {
     line-height: 2.0;
     margin: 0;
     padding-top: 3.0em;
+    color: white;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%
 }
 
 .container {
@@ -15,25 +22,57 @@ body {
 .centered {
     margin-top: 60px;
     text-align: center;
-    width: 8;
-    background-color: white
+    background-color: black;
+    width: 60%
 
 }
+
 h1 {
-    color: white
-    font-weight: 300;
-    font-size: 3.0em;
-    line-height: 1.5
-    margin-top: 30px
+    color: white;
+    font-weight: 250;
+    font-size: 2.5em;
+    line-height: 1.5;
+ }
 
+h2 {
+    color: white;
+    font-weight: 250;
+    font-size: 2.5em;
+    line-height: 1.5;
+    font-family: 'Lucida Sans', sans-serif;
 }
 
-.button-categories {
+p {
+    margin: 1em 0;
+    font-weight: 300;
+    font-size: 1.125em;
+    line-height: 2;
+}
+
+.button-choices {
     font-size: 50px;
-    display: flex;
-    width: 300px;
-    height: 100px;
-    justify-content: flex-end;
+    display:flex;
+    /* width: 300px;
+    height: 120px; */
+    justify-content: flex-start;
     margin: 10px;
+    align-items: stretch;
     
 }
+
+.button-characters {
+    font-size: 50px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+    align-items: stretch;
+}
+
+.btn-default {
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 1em;
+    color: black
+}
+
+
