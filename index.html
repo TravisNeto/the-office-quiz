@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Office Quiz</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script defer src="app.js"></script>
 </head>
 <body>
     <div class="container">
@@ -13,24 +14,41 @@
             <h2 id="score"></h2>
             <div class="buttons-container">
                 <div class="button-choices">
-                    <button class="choices">Choices</button>
+                    <button class="choices-game">Choices</button>
                 </div>
-                <div>         
-                    <p id="choice0"></p>
-                    <button id="guess0" class="btn-default">Choose</button>
+                <div class="game-area">
+                    <div class="question-parent">
+                        <h3 class="question">This is a Question</h3>
 
-                    <p id="choice1"></p>
-                    <button id="guess1" class="btn-default">Choose</button>
+                    </div>
+                    <div class="answers">
+                        <ul>
+                            <li>
+                                <button class="true">True</button>
+                            </li>
+                            <li>
+                                <button class="false">False!</button>
+                            </li>
+                        </ul>
+                    </div>
+        
+                    <!-- <img src = "images/Michael-Scott-Misquotations-Office-Video.webp">           -->
+    
+                    <!-- <p id="choice0" class="choice"></p>
+                    <button id="guess0" class="btn-default guess">Choose</button>
 
-                    <p id="choice2"></p>
-                    <button id="guess2" class="btn-default">Choose</button>
+                    <p id="choice1" class="choice"></p>
+                    <button id="guess1" class="btn-default guess">Choose</button>
 
-                    <p id="choice3"></p>
-                    <button id="guess3" class="btn-default">Choose</button>
+                    <p id="choice2" class="choice"></p>
+                    <button id="guess2" class="btn-default guess">Choose</button>
+
+                    <p id="choice3" class="choice"></p>
+                    <button id="guess3" class="btn-default guess">Choose</button> -->
                 </div>
             
                 <div class="button-characters">
-                    <button class="characters">Characters</button>
+                    <button class="characters-game">Characters</button>
                 </div>
             </div>
             <footer>
