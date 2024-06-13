@@ -62,13 +62,10 @@
 	let questionStatus = `Question ${currentQuestion} of ${totalQuestions}`
    	let choicesGameStatus = false
 
+
+
+
 	/*----- cached elements  -----*/
-
-const question = document.getElementById("")
-const choices = document.querySelectorAll(".choice")
-const guesses = document.querySelectorAll(".guess")
-
-const questionProgress = document.querySelector(".progress")
 
 const init = (event) => {
 	choices.forEach((choice) => {
@@ -78,41 +75,89 @@ const init = (event) => {
 		guess.style.visibility = "hidden"
 	})
 }
-
+const question = document.getElementById(".question")
+const choices = document.querySelectorAll(".choice")
+const guesses = document.querySelectorAll(".guess")
+const questionProgress = document.querySelector(".progress")
 const buttonChoicesEl = document.querySelector(".choices-game")
 const buttonCharactersEl = document.querySelector(".characters-game")
 const imgEl = document.querySelector("img")
-
-const buttonChooseEl = document.querySelectorAll("#Choose")
-
+const buttonChooseEl = document.querySelectorAll(".choice")
 const classQuestion = document.querySelector(".question")
+const buttonTrueEl = document.querySelector(".true")
+const buttonFalseEl = document.querySelector(".false")
+const divAnswers = document.querySelector(".game-area")
+const questionParent = document.querySelector(".question-parent")
+const answersEl = document.querySelector(".answers")
+const charactersQuesEl = document.querySelector(".characters")
 
 
 	/*----- functions -----*/
 
 function choicesGame() {
-	classQuestion.textContent = questions.trueOrFalseChoices[0][0]
+	classQuestion.textContent = questions.trueOrFalseChoices[0].question
 
 }
 
-function handleClick(event) {
+function charGame() {
+	classQuestion.textContent = questions.characterQuestions[0][0]
 
 }
+
+
+function charactersEl() {
+	charactersQuesEl.style.display = "block"
+
+}
+
+function displayQA() {
+	questionParent.style.display = "block"
+	answersEl.style.display = "block"
+}
+
+
+// side buttons
 
 function choicesGameStart(event) {
 	hideImg()
 	choicesGame()
+	displayQA()
 
 }
 
-function charGame(event) {
+
+function charGameStart(event) {
 	hideImg()
+	charGame()
+	charactersEl()
 }
 
+
+// hide game start
 
 function hideImg() {
-	imgEl.style.visibility = "hidden"
+	imgEl.style.visibility = "hidden"	
 }
+
+function hideChoicesAnswers() {
+	divAnswers.style.visibility = "hidden"
+}
+
+
+
+//  function trueBtn(event) {
+//  	if (correctAnswer === true) {
+// 		render("True")
+// 	}
+// 		render("False!")
+//  }
+
+
+
+// function falseBtn() {
+
+// }
+
 
 
 // function init () {
@@ -120,22 +165,27 @@ function hideImg() {
 // }
 
 
-function render() {
-	updateMessage()
-}
+// function render() {
+//  	updateMessage()
+//  }
 
 
-function updateMessage() {
+// function updateMessage() {
 
-}
+//  }
+
+
 
 
 	/*----- event listeners -----*/
 
 window.addEventListener("load", init)
 
+
 buttonChoicesEl.addEventListener("click", choicesGameStart)
-buttonCharactersEl.addEventListener("click", charGame)
+buttonCharactersEl.addEventListener("click", charGameStart)
+buttonTrueEl.addEventLisener("click", trueBtn)
+buttonFalseEl.addEventLisener("click", falseBtn)
 	
 
 

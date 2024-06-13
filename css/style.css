@@ -40,7 +40,16 @@ h2 {
     font-size: 2.5em;
     line-height: 1.5;
     font-family: 'Lucida Sans', sans-serif;
-    border: 1px solid red;
+    border: 3px solid white;
+}
+
+h3 {
+    color: white;
+    font-weight: 200;
+    font-size: 1em;
+    line-height: 1.5;
+    font-family: 'Lucida Sans', sans-serif;
+    
 }
 
 p {
@@ -54,8 +63,6 @@ p {
 .button-choices {
     font-size: 50px;
     display:flex;
-    /* width: 300px;
-    height: 120px; */
     justify-content: flex-start;
     margin: 10px;
     align-items: stretch;
@@ -87,4 +94,22 @@ img {
     width: 500px;
     height: 500px;
     flex-direction: column;
+}
+
+.question-parent {
+    display: none
+    
+}
+
+.answers {
+    display: none
+}
+
+
+#progress {
+    display: none
+}
+
+.characters {
+    display: none
 }
