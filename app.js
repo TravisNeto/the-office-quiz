@@ -50,17 +50,18 @@
 	   ]
    }
 
-
+// 
 
 	/*----- state variables -----*/
 
-	// let [choice0, choice1, choice2, choice3] = [guess0, guess1, guess2, guess3]
+	let [choice0, choice1, choice2, choice3] = [guess0, guess1, guess2, guess3]
 
-	let currentQuestion = 1;
+	let currentQuestion = -1;
 	let totalQuestions = 4;
 	
 	let questionStatus = `Question ${currentQuestion} of ${totalQuestions}`
    	let choicesGameStatus = false
+	let correctAnswer = ""
 
 
 
@@ -75,7 +76,7 @@ const init = (event) => {
 		guess.style.visibility = "hidden"
 	})
 }
-const question = document.getElementById(".question")
+
 const choices = document.querySelectorAll(".choice")
 const guesses = document.querySelectorAll(".guess")
 const questionProgress = document.querySelector(".progress")
@@ -90,19 +91,69 @@ const divAnswers = document.querySelector(".game-area")
 const questionParent = document.querySelector(".question-parent")
 const answersEl = document.querySelector(".answers")
 const charactersQuesEl = document.querySelector(".characters")
-
+let currentCorrectQ;
 
 	/*----- functions -----*/
 
+function changeQuestion() {
+	currentQuestion = currentQuestion +1
+	choicesGame()
+	
+}
+
+
 function choicesGame() {
-	classQuestion.textContent = questions.trueOrFalseChoices[0].question
+	// classQuestion.textContent = questions.trueOrFalseChoices[0].question;
+	// const question = questions.trueOrFalseChoices[currentQuestion + 1];
+	// console.log(question)
+	
+	// if (question) {
+	// 	classQuestion.textContent = question.question;
+	// } else {
+	// 	choices.forEach((choice)=> {
+	// 		choice.style.visibility = "hidden"
+	//  	}); 
+	// 	console.log("Game Over")
+	// 	return
+		currentQuestion++;
+		if (currentQuestion < totalQuestions) {
+			const question = questions.trueOrFalseChoices[currentQuestion];
+			classQuestion.textContent = question.question;
+			currentCorrectQ = question.correctAnswer
+		} else {
+			console.log("Game Over");
+			resetGame();
+		}
+	}
+
+
+function resetGame() {
+		currentQuestion = -1;
+		displayMainScreen();
+	}
+	
+function displayMainScreen() {
+		
+	}
+
+
+function render() {
 
 }
 
-function charGame() {
-	classQuestion.textContent = questions.characterQuestions[0][0]
+// choices.forEach((choice, index) => {
+// 	choice.textContent = currentQuestion.incorrectAnswers[index];
+// 	choice.dataset.correct = currentQuestion.correctAnswer === currentQuestion.incorrectAnswers[index];
+// });
 
-}
+// choices.forEach((choice) => {
+// 	choice.style.visibility = "visible";
+// })
+
+// function charGame() {
+// 	classQuestion.textContent = questions.characterQuestions[0].question;
+// 	currentQuestion = question.characterQuestions[0];
+// }
 
 
 function charactersEl() {
@@ -122,15 +173,26 @@ function choicesGameStart(event) {
 	hideImg()
 	choicesGame()
 	displayQA()
+	//hideCharAnswers()
 
 }
 
 
 function charGameStart(event) {
 	hideImg()
+	hideChoicesAnswers()
 	charGame()
-	charactersEl()
+	charactersQuesEl()
 }
+
+
+
+//// write a function called changeQuestion that can be called when you select correct answer
+//// access the next index in the current list of questions
+//// call choicesGame if renderQuestion is defined
+//// function called gameOver that hides the question, hides buttons, presents a message Game Over, Play Again!
+
+
 
 
 // hide game start
@@ -143,20 +205,31 @@ function hideChoicesAnswers() {
 	divAnswers.style.visibility = "hidden"
 }
 
+function hideCharAnswers() {
+	choices.style.visibility = "hidden"
+}
+
+function updateMessage() {
+	if (correctAnswer){
+
+		
+	}
+}
 
 
-//  function trueBtn(event) {
-//  	if (correctAnswer === true) {
-// 		render("True")
-// 	}
-// 		render("False!")
-//  }
+
+ function trueBtn(event) {
+ 	if (correctAnswer === true) {
+		changeQuestion()
+	}
+
+ }
 
 
 
-// function falseBtn() {
+function falseBtn() {
 
-// }
+}
 
 
 
@@ -184,8 +257,37 @@ window.addEventListener("load", init)
 
 buttonChoicesEl.addEventListener("click", choicesGameStart)
 buttonCharactersEl.addEventListener("click", charGameStart)
-buttonTrueEl.addEventLisener("click", trueBtn)
-buttonFalseEl.addEventLisener("click", falseBtn)
+
+// buttonFalseEl.addEventListener("click", () => {
+//     if ("False"); // if the currentCorrectQ is equal btnFalseEl.textContent, move onto next question (choicesGame()). if not, restart the game
+// });
+
+// buttonFalseEl.addEventListener("click", () => {
+//     if currentCorrectQ = btnFalse // if the currentCorrectQ is equal btnFalseEl.textContent, move onto next question (choicesGame()). if not, restart the game
+// });
+
+buttonFalseEl.addEventListener("click", () => {
+    if (currentCorrectQ === buttonFalseEl.textContent) {
+        choicesGame();      
+    } else {
+		resetGame();
+	}
+});
+
+
+buttonTrueEl.addEventListener("click", () => {
+    if (currentCorrectQ === buttonTrueEl.textContent) {
+        choicesGame();      
+    } else {
+		resetGame();
+	}
+});
+
+
+
+// buttonTrueEl.addEventListener("click", () => {
+//     choicesGame("True"); // if the currentCorrectQ is equal btnTrueEl.textContent, move onto next question. if not, restart the game
+// }); 
 	
 
 
@@ -197,3 +299,4 @@ buttonFalseEl.addEventLisener("click", falseBtn)
 
 // within game running, declare when the player chooses correctly or incorrectly
 // display to user that they got it right or wrong (feedback)
+
