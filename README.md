@@ -2,7 +2,7 @@
 ![Screenshot 2024-06-14 195015](https://github.com/TravisNeto/the-office-quiz/assets/168302897/db0788cb-2e13-4b5e-bd50-c4456897c8cf)
 https://github.com/TravisNeto/the-office-quiz
 # The Office Quiz!
-## its a game with 2 categories. True or False and then another category for Character questions
+## A game with 2 categories. True or False and then another category for Character questions
 * I choice to do this game because The Office is my favorite show and I thought it would be fun to do a little quiz about it.
 * I've used Google for questions and examples, support time with classmates and instructors as my resources
 * Technologies used: JavaScript, HTML, CSS, VS code, live browser.
