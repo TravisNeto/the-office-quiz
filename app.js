@@ -68,15 +68,6 @@
 
 	/*----- cached elements  -----*/
 
-// const init = (event) => {
-// 	choices.forEach((choice) => {
-// 		choice.style.visibility = "hidden"
-// 	})
-// 	guesses.forEach((guess) => {
-// 		guess.style.visibility = "hidden"
-// 	});
-// }
-
 
 const choices = document.querySelectorAll(".choice")
 const guesses = document.querySelectorAll(".guess")
@@ -93,24 +84,12 @@ const answersEl = document.querySelector(".answers")
 const charactersQuesEl = document.querySelector(".characters")
 const messageEl = document.querySelector(".message")
 const resetBtn = document.querySelector(".reset-button")
+const loseMessage = document.getElementById("#p")
+const allElements = document.querySelectorAll('*');
 let currentCorrectQ = "";
 
 
 	/*----- functions -----*/
-
-function showWinMessage () {
-	updateMessage("Congrats! You Win!")
-}
-
-function showLossMessage () {
-	updateMessage("You Lose! Try Again")
-}
-
-function updateMessage () {
-	const messageEl = document.getElementById("message");
-	messageEl.textContent = message;
-}
-
 
 function endGame() {
 	messageEl.innerText = "You Lose! Try Again"
@@ -141,30 +120,10 @@ function choicesGame() {
 
 
 function resetGame() {
-	currentQuestion = -1;
-	imgEl.style.visibility = "visible"
-	questionParent.style.visibility = "hidden"
-	answersEl.style.visibility = "hidden"
-    choices.forEach((choice) => {
-    choice.style.visibility = "hidden";
-    });
-    guesses.forEach((guess) => {
-        guess.style.visibility = "hidden";
-    });
-	init();
+	location.reload()
+
 }
 	
-
-// function charGame() {
-// 	classQuestion.textContent = questions.characterQuestions[0].question;
-// 	currentQuestion = question.characterQuestions[0];
-// }
-
-
-// function charactersEl() {
-// 	charactersQuesEl.style.display = "block"
-
-// }
 
 function displayQA() {
 	questionParent.style.display = "block"
@@ -181,14 +140,6 @@ function choicesGameStart(event) {
 	//hideCharAnswers()
 
 }
-
-// Commented out Character category to work on it later
-// function charGameStart(event) {
-// 	hideImg()
-// 	hideChoicesAnswers()
-// 	charGame()
-// 	charactersQuesEl()
-// }
 
 
 // hide game start
@@ -217,14 +168,14 @@ function hideCharAnswers() {
 
 function falseBtn() {
 	if (correctAnswer === true) {
-		change()
+		changeQ()
 	}
 		resetGame()
 }
 
 
 function init () {
-	resetGame
+	resetGame()
 }
 
 
@@ -232,7 +183,9 @@ function init () {
 
 window.addEventListener("load", init)
 
-resetBtn.addEventListener("click", resetGame)
+resetBtn.addEventListener("click", function() {
+	location.reload();
+})
 
 
 buttonChoicesEl.addEventListener("click", choicesGameStart)
@@ -256,7 +209,66 @@ buttonTrueEl.addEventListener("click", () => {
 
 
 
-buttonTrueEl.addEventListener("click", () => {
-    choicesGame("True"); 
-}); 
+ 
 	
+
+
+
+
+
+
+
+
+
+
+/// Characters game and other code not currently being used just yet
+
+
+// function charGame() {
+// 	classQuestion.textContent = questions.characterQuestions[0].question;
+// 	currentQuestion = question.characterQuestions[0];
+// }
+
+
+// function charactersEl() {
+// 	charactersQuesEl.style.display = "block"
+
+// }
+
+
+
+// Commented out Character category to work on it later
+// function charGameStart(event) {
+// 	hideImg()
+// 	hideChoicesAnswers()
+// 	charGame()
+// 	charactersQuesEl()
+// }
+
+
+// const init = (event) => {
+// 	choices.forEach((choice) => {
+// 		choice.style.visibility = "hidden"
+// 	})
+// 	guesses.forEach((guess) => {
+// 		guess.style.visibility = "hidden"
+// 	});
+// }
+
+
+// function showWinMessage () {
+// 	updateMessage("Congrats! You Win!")
+// }
+
+// function showLossMessage () {
+// 	updateMessage("You Lose! Try Again")
+// }
+
+// function updateMessage () {
+// 	const messageEl = document.getElementById("message");
+// 	messageEl.textContent = "message";
+// }
+
+// buttonTrueEl.addEventListener("click", () => {
+//     choicesGame("True"); 
+// });
